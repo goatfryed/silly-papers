@@ -1,0 +1,50 @@
+\usepackage{tikz}
+\usepackage{xparse}
+\usepackage{xspace}
+
+% --- Custom Notation Macros ---
+\newcommand{\botc}{\emph{BotC}\xspace}
+\newcommand{\st}{\emph{Storyteller}\xspace}
+\newcommand{\player}{\emph{Player}\xspace}
+\newcommand{\game}{\ensuremath{G}\xspace}
+\newcommand{\playerset}{\ensuremath{P}\xspace}
+\newcommand{\playercount}{\ensuremath{N}\xspace}
+
+% \seat{<player count>}{<player no.>}{<color>}[<label:-P_n>][<node name:-p_n>]
+\NewDocumentCommand{\seat}{ m m m O{$P_{#2}$} O{p#2} }{%
+    \node[#3 node] (#5) at ({90 - (#2 - 1) * 360 / #1}:1.5) {#4};%
+}
+
+\definecolor{stronggreen}{RGB}{0, 145, 65}
+\definecolor{brightorange}{RGB}{255, 120, 0}
+
+\NewDocumentEnvironment{seating}{ m O{} }{%
+    \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        scale=2,
+        every node/.style={circle, draw, minimum size=0.7cm, font=\small\bfseries},
+        good node/.style={
+            draw=stronggreen!55!black,
+            fill=stronggreen!20,
+            text=stronggreen!40!black
+        },
+        sus node/.style={
+            draw=brightorange!85!black,
+            fill=brightorange!25,
+            text=brightorange!50!black
+        },
+        bad node/.style={
+            draw=yellow!60!black,
+            fill=yellow!70!orange!30,
+            text=yellow!20!black
+        }
+    ]
+    \draw[dashed, gray!40] (0,0) circle (1.5);
+} % body %
+{
+    \end{tikzpicture}
+    \caption{#1}%
+    \if\relax\detokenize{#2}\relax\else\label{#2}\fi
+    \end{figure}
+}

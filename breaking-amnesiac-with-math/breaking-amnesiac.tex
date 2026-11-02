@@ -1,0 +1,68 @@
+\title{
+    About breaking your storyteller's spirit by applying algebraic theory
+    to turn amnesiac in the best info role in Blood of the clocktower.
+    And related shennanigans
+}
+\author{goatfryed}
+\date{\today}
+
+\documentclass[11pt,a4paper]{article}
+
+% --- Visual ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+
+% --- Mathematics & Rigor ---
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+
+% --- Cross-referencing & Structure ---
+\usepackage{booktabs}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage{cleveref}
+
+% --- Other ---
+\usepackage{todonotes}
+
+% --- Theorem Environments ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}[theorem]{Claim}
+
+\input{macros}
+
+% --- Metadata ---
+\hypersetup{
+    pdftitle={Breaking amnesiac with math}
+}
+
+\begin{document}
+
+    \maketitle
+
+    \input{abstract}
+    \input{preliminaries}
+    \input{questions/questions}
+
+
+    \begin{thebibliography}{9}
+% Citations
+    \end{thebibliography}
+
+\end{document}

@@ -1,0 +1,65 @@
+
+\section{Gossip min-mining}\label{sec:questions}
+As motivation for our amnesiac approach, we want to look at other question strategies.
+
+Various characters allow \player{}s to ask the \st questions.
+A straightforward approach is to narrow down demon candidates with our question.
+A common approach is to bisect the player set \playerset with questions such as
+
+\begin{quote}
+    \itshape
+    Is player $X$ in the half of players that have the demon at their center?
+\end{quote}
+or
+\begin{quote}
+    \itshape
+    Is the demon above the median age?
+\end{quote}
+
+What other questions can you think of?
+
+\begin{question}\label{q:gossip-search}
+    Let's discuss the following question
+    \begin{quote}
+        \itshape
+        We give each player a color.
+        Starting with the demon and continuing with the demon's next neighbor
+        left, right, left right,
+        we color half the number of players (rounded down) orange.
+        The remaining players are colored green.
+        Is player X orange?
+    \end{quote}
+    or in a less formal, more confusing and really boring way.
+    \begin{quote}
+        \itshape
+        Is player X in the half of players that have the demon at their center?
+    \end{quote}
+\end{question}
+
+\begin{observation}
+    Let's look at two coloring examples for even and odd cases to
+    \input{questions/fig-coloring-odd}
+    \input{questions/fig-coloring-even}
+
+    First, we observe that we know that either K
+    or the \player(s) seated directly across from K are green and therefore not the demon.
+
+    For \emph{\playercount is odd}, we learn two players that are not the demon
+
+    Let's study $N=11$
+\end{observation}
+
+\begin{claim}
+    Q\ref{q:gossip-search} clears exactly one player after one question, performs
+    as good as any binary search after two or more questions and annoys the \st{ }nicely
+\end{claim}
+
+\begin{proof}
+    We leave the proof as a nice exercise for you, dear reader.
+\end{proof}
+
+\begin{remark}[Ternary questions]
+    The rulebook defines questions as ternary over the answer set
+    ${\text{yes},\text{ no},\text{ i don't know}}$.
+    As some redditor\todo{} showed, we can apply advanced question design to turn an ``I don't know'' in a ``We know more''
+\end{remark}
